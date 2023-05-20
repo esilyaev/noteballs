@@ -16,7 +16,7 @@ export const MainLayout = () => {
         <NavBar />
       </AppBar>
 
-      <Box sx={{ flex: "1 1 auto", overflow: "hidden" }}>
+      <Box sx={{ flex: "1 1 auto" }}>
         <Container maxWidth="xl" sx={{ height: "100%", mt: 1 }}>
           <Outlet />
         </Container>
