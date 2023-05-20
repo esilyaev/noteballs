@@ -1,5 +1,5 @@
 import { NavBar } from "@/widgets/NavBar";
-import { AppBar, Box } from "@mui/material";
+import { AppBar, Box, Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
@@ -16,8 +16,10 @@ export const MainLayout = () => {
         <NavBar />
       </AppBar>
 
-      <Box sx={{ flex: "1 1 auto" }}>
-        <Outlet />
+      <Box sx={{ flex: "1 1 auto", overflow: "hidden" }}>
+        <Container maxWidth="xl" sx={{ height: "100%", mt: 1 }}>
+          <Outlet />
+        </Container>
       </Box>
     </Box>
   );
