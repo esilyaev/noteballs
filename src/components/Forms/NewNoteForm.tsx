@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-export const NewNoteForm = () => {
+export const NewNoteForm: React.FC = () => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <form

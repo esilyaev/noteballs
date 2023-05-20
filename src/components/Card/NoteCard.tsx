@@ -5,14 +5,14 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
-import { FC } from "react";
+import React from "react";
 
 interface Props {
   title: string;
   content: string;
 }
 
-export const NoteCard: FC<Props> = ({ title, content }) => {
+export const NoteCard: React.FC<Props> = ({ title, content }) => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardContent>

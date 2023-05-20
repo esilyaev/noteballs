@@ -1,5 +1,5 @@
-import { NewNoteForm } from "@/components/NewNoteForm/NewNoteForm";
-import { NotesList } from "@/components/NotesList/NotesList";
+import { NewNoteForm } from "@/components/Forms/NewNoteForm";
+import { NotesList } from "@/components/Lists/NotesList";
 
 export const NotesPage = () => {
   const text =
