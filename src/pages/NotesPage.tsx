@@ -1,60 +1,22 @@
-import { NoteCard } from "@/components/Card/NoteCard";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { NewNoteForm } from "@/components/NewNoteForm/NewNoteForm";
+import { NotesList } from "@/components/NotesList/NotesList";
 
 export const NotesPage = () => {
   const text =
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias eius, repellendus qui obcaecati nesciunt dolorum sint, facilis quidem modi pariatur, possimus mollitia a magnam voluptates eveniet. Ex sapiente aut quos dolorem. Nihil asperiores iste delectus quidem magnam temporibus voluptate repellat corporis sequi officia, nobis laborum incidunt obcaecati quod, atque saepe quisquam a dicta suscipit. Maxime, perspiciatis aut eum temporibus veritatis fugit molestiae, exercitationem soluta et quam deleniti veniam ad quos odit consectetur dolore! Minima, consectetur officiis itaque modi eligendi esse laudantium reiciendis repellat corporis nihil quam enim sed? Voluptate soluta ducimus consequatur aut esse ipsam ad perferendis ab accusamus laborum!";
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. A corporis fugiat ut soluta enim odit, dolorem debitis doloribus repellendus eius perspiciatis veniam. Exercitationem natus fugit facere repudiandae ex asperiores ipsam.";
+
+  const notes = [
+    { id: 1, title: "Title 1", content: text },
+    { id: 2, title: "Title 2", content: text },
+    { id: 3, title: "Title 3", content: text },
+    { id: 4, title: "Title 4", content: text },
+  ];
 
   return (
     <>
-      <Card variant="outlined" sx={{ mb: 2 }}>
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
-          <CardContent>
-            <Typography variant="h5">New note</Typography>
+      <NewNoteForm />
 
-            <TextField
-              sx={{ mt: 2 }}
-              id="card-title"
-              label="Title"
-              variant="outlined"
-              placeholder="Type here title for note"
-              fullWidth
-              size="small"
-            />
-            <TextField
-              sx={{ mt: 2 }}
-              id="card-content"
-              label="Content"
-              variant="outlined"
-              multiline
-              rows={4}
-              placeholder="Type here some for memorize..."
-              fullWidth
-              size="small"
-            />
-          </CardContent>
-          <CardActions>
-            <Button type="submit">Save</Button>
-            <Button type="submit" color="error">
-              Clear form
-            </Button>
-          </CardActions>
-        </form>
-      </Card>
-      {[...Array(3)].map((item) => (
-        <NoteCard title="Card title" content={text} key={item} />
-      ))}
+      <NotesList notes={notes} />
     </>
   );
 };
