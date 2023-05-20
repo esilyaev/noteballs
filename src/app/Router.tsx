@@ -1,13 +1,16 @@
+import { MainLayout } from "@/layouts/MainLayout";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { MainLayout } from "../layouts/MainLayout";
-import { WelcomePage } from "../pages/WelcomePage";
+import { mainRoutes } from "./AppRoutes";
 
 export const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
-      children: [{ path: "/", element: <WelcomePage /> }],
+      children: mainRoutes.map((el) => ({
+        path: el.path,
+        element: el.element,
+      })),
     },
   ]);
 
