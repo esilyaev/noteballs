@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 interface Props {
   addNewNote: (note: INote) => void;
@@ -48,6 +48,16 @@ export const NoteCreateForm: React.FC<Props> = ({ addNewNote }) => {
     reset();
   };
 
+  const isFormHaveAllFieldContent = useMemo(
+    () => title.length !== 0 && content.length !== 0,
+    [title, content]
+  );
+
+  const isFormNotEmpty = useMemo(
+    () => title.length !== 0 || content.length !== 0,
+    [title, content]
+  );
+
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <form onSubmit={handleSubmit} onReset={handleReset}>
@@ -80,8 +90,10 @@ export const NoteCreateForm: React.FC<Props> = ({ addNewNote }) => {
           />
         </CardContent>
         <CardActions>
-          <Button type="submit">Save</Button>
-          <Button type="reset" color="error">
+          <Button type="submit" disabled={!isFormHaveAllFieldContent}>
+            Save
+          </Button>
+          <Button type="reset" color="error" disabled={!isFormNotEmpty}>
             Clear form
           </Button>
         </CardActions>
