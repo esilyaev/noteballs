@@ -6,7 +6,7 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useMemo } from "react";
 
 interface Props {
   note: INote;
@@ -18,6 +18,8 @@ export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
     deleteNote(note.id);
   };
 
+  const lettersCount = useMemo(() => note.content.length, [note.content]);
+
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardContent>
@@ -28,6 +30,9 @@ export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
           gutterBottom
         >
           {note.title}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {lettersCount} symbols contain
         </Typography>
 
         <Typography variant="body2">{note.content}</Typography>
