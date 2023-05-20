@@ -1,3 +1,4 @@
+import { INote } from "@/entities/Note/Note";
 import {
   Button,
   Card,
@@ -8,11 +9,15 @@ import {
 import React from "react";
 
 interface Props {
-  title: string;
-  content: string;
+  note: INote;
+  deleteNote: (id: number) => void;
 }
 
-export const NoteCard: React.FC<Props> = ({ title, content }) => {
+export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
+  const handleDelete = () => {
+    deleteNote(note.id);
+  };
+
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardContent>
@@ -22,14 +27,14 @@ export const NoteCard: React.FC<Props> = ({ title, content }) => {
           color="text.primary"
           gutterBottom
         >
-          {title}
+          {note.title}
         </Typography>
 
-        <Typography variant="body2">{content}</Typography>
+        <Typography variant="body2">{note.content}</Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Edit</Button>
-        <Button size="small" color="error">
+        <Button size="small" color="error" onClick={handleDelete}>
           Delete
         </Button>
       </CardActions>

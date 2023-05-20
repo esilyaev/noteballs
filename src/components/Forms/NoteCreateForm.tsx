@@ -1,3 +1,4 @@
+import { INote } from "@/entities/Note/Note";
 import {
   Button,
   Card,
@@ -8,7 +9,11 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 
-export const NoteCreateForm: React.FC = () => {
+interface Props {
+  addNewNote: (note: INote) => void;
+}
+
+export const NoteCreateForm: React.FC<Props> = ({ addNewNote }) => {
   const [title, setTitle] = useState("");
 
   const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +40,11 @@ export const NoteCreateForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ title, content });
+    addNewNote({
+      id: new Date().getTime(),
+      title,
+      content,
+    });
     reset();
   };
 
@@ -42,7 +52,7 @@ export const NoteCreateForm: React.FC = () => {
     <Card variant="outlined" sx={{ mb: 2 }}>
       <form onSubmit={handleSubmit} onReset={handleReset}>
         <CardContent>
-          <Typography variant="h5">New note</Typography>
+          <Typography variant="h5">Add a new note</Typography>
 
           <TextField
             sx={{ mt: 2 }}
