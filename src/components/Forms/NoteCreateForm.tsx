@@ -1,4 +1,6 @@
 import { INote } from "@/entities/Note/Note";
+import { useAppDispatch } from "@/store/hooks";
+import { addNewNote } from "@/store/notesSlice";
 import {
   Button,
   Card,
@@ -9,11 +11,8 @@ import {
 } from "@mui/material";
 import React, { useMemo, useState } from "react";
 
-interface Props {
-  addNewNote: (note: INote) => void;
-}
-
-export const NoteCreateForm: React.FC<Props> = ({ addNewNote }) => {
+export const NoteCreateForm: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [title, setTitle] = useState("");
 
   const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,11 +39,13 @@ export const NoteCreateForm: React.FC<Props> = ({ addNewNote }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ title, content });
-    addNewNote({
-      id: new Date().getTime(),
-      title,
-      content,
-    });
+    dispatch(
+      addNewNote({
+        id: new Date().getTime(),
+        title,
+        content,
+      } as INote)
+    );
     reset();
   };
 

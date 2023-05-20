@@ -4,14 +4,13 @@ import { NoteCard } from "../Card/NoteCard";
 
 interface Props {
   notes: INote[];
-  deleteNote: (id: number) => void;
 }
 
-export const NotesList: React.FC<Props> = ({ notes, deleteNote }) => {
+export const NotesList: React.FC<Props> = ({ notes }) => {
   return (
     <>
       {notes.map((note) => (
-        <NoteCard note={note} key={note.id} deleteNote={deleteNote} />
+        <NoteCard note={note} key={note.id} />
       ))}
     </>
   );
