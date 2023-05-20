@@ -1,4 +1,4 @@
-import { NewNoteForm } from "@/components/Forms/NewNoteForm";
+import { NoteCreateForm } from "@/components/Forms/NoteCreateForm";
 import { NotesList } from "@/components/Lists/NotesList";
 
 export const NotesPage = () => {
@@ -14,7 +14,7 @@ export const NotesPage = () => {
 
   return (
     <>
-      <NewNoteForm />
+      <NoteCreateForm />
 
       <NotesList notes={notes} />
     </>
