@@ -5,7 +5,6 @@ export const NotesPage = () => {
   return (
     <>
       <NoteCreateFormWidget />
-
       <NoteListWidget />
     </>
   );
