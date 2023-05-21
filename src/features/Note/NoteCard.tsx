@@ -1,6 +1,4 @@
-import { useAppDispatch } from "@/app/hooks";
 import { INote } from "@/entities/Note/Note";
-import { deleteNote } from "@/entities/Note/notesSlice";
 import {
   Button,
   Card,
@@ -12,16 +10,15 @@ import React, { useMemo } from "react";
 
 interface Props {
   note: INote;
+  deleteNote: (id: number) => void;
 }
 
-export const NoteCard: React.FC<Props> = ({ note }) => {
-  const dispatch = useAppDispatch();
+export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
+  const lettersCount = useMemo(() => note.content.length, [note.content]);
 
   const handleDelete = () => {
-    dispatch(deleteNote(note.id));
+    deleteNote(note.id);
   };
-
-  const lettersCount = useMemo(() => note.content.length, [note.content]);
 
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
