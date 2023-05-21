@@ -1,4 +1,4 @@
-import { INote } from "@/entities/Note/Note";
+import { INote } from "@/entities/notes/Note";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import { RootState } from ".";
 

@@ -1,4 +1,4 @@
-import notesReducer from "@/entities/Note/notesSlice";
+import notesReducer from "@/entities/notes/notesSlice";
 import { configureStore } from "@reduxjs/toolkit";
 // ...
 

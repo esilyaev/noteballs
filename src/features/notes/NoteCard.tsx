@@ -1,4 +1,4 @@
-import { INote } from "@/entities/Note/Note";
+import { INote } from "@/entities/notes/Note";
 import {
   Button,
   Card,

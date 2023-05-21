@@ -1,5 +1,5 @@
-import { NoteCreateFormWidget } from "@/widgets/Note/NoteCreateFormWidget";
-import { NoteListWidget } from "@/widgets/Note/NoteListWidget";
+import { NoteCreateFormWidget } from "@/widgets/notes/NoteCreateFormWidget";
+import { NoteListWidget } from "@/widgets/notes/NoteListWidget";
 
 export const NotesPage = () => {
   return (

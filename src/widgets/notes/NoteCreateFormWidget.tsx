@@ -1,4 +1,4 @@
-import { NoteCreateForm } from "@/features/Note/NoteCreateForm";
+import { NoteCreateForm } from "@/features/notes/NoteCreateForm";
 import React from "react";
 
 export const NoteCreateFormWidget: React.FC = () => {

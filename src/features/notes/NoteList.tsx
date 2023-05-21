@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { deleteNote } from "@/entities/Note/notesSlice";
+import { deleteNote } from "@/entities/notes/notesSlice";
 import React from "react";
 import { NoteCard } from "./NoteCard";
 
