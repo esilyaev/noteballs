@@ -1,6 +1,7 @@
 import { useAppDispatch } from "@/app/hooks";
 import { INote } from "@/entities/notes/Note";
-import { addNewNote } from "@/entities/notes/notesSlice";
+import { addNewNote } from "@/entities/notes/NotesSlice";
+import { SBITextField } from "@/shared/ui/inputs/SBITextInput";
 import {
   Button,
   Card,
@@ -66,27 +67,19 @@ export const NoteCreateForm: React.FC = () => {
         <CardContent>
           <Typography variant="h5">Add a new note</Typography>
 
-          <TextField
+          <SBITextField
             sx={{ mt: 2 }}
-            id="card-title"
-            label="Title"
-            variant="outlined"
-            placeholder="Type here title for note"
-            fullWidth
-            size="small"
+            label={"Note title"}
+            placeholder={"Type here title for a new note"}
             value={title}
             onChange={handleChangeTitle}
           />
-          <TextField
+          <SBITextField
             sx={{ mt: 2 }}
-            id="card-content"
             label="Content"
-            variant="outlined"
             multiline
             rows={4}
             placeholder="Type here some for memorize..."
-            fullWidth
-            size="small"
             value={content}
             onChange={handleChangeContent}
           />
