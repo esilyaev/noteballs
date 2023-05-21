@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   note: INote;
@@ -14,10 +15,15 @@ interface Props {
 }
 
 export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
+  const navigate = useNavigate();
   const lettersCount = useMemo(() => note.content.length, [note.content]);
 
   const handleDelete = () => {
     deleteNote(note.id);
+  };
+
+  const handleEdit = () => {
+    navigate(`edit/${note.id}`);
   };
 
   return (
@@ -38,7 +44,9 @@ export const NoteCard: React.FC<Props> = ({ note, deleteNote }) => {
         <Typography variant="body2">{note.content}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
+        <Button size="small" onClick={handleEdit}>
+          Edit
+        </Button>
         <Button size="small" color="error" onClick={handleDelete}>
           Delete
         </Button>

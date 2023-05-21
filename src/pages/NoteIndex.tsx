@@ -1,7 +1,7 @@
 import { NoteCreateFormWidget } from "@/widgets/notes/NoteCreateFormWidget";
 import { NoteListWidget } from "@/widgets/notes/NoteListWidget";
 
-export const NotesPage = () => {
+export const NoteIndex = () => {
   return (
     <>
       <NoteCreateFormWidget />
