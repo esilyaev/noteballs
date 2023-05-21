@@ -1,4 +1,4 @@
-import { NoteCard } from "@/components/Card/NoteCard";
+import { NoteCard } from "@/features/Note/NoteCard";
 
 export const WelcomePage = () => {
   return <div>WelcomePage</div>;

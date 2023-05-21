@@ -1,6 +1,6 @@
+import { useAppDispatch } from "@/app/hooks";
 import { INote } from "@/entities/Note/Note";
-import { useAppDispatch } from "@/store/hooks";
-import { addNewNote } from "@/store/notesSlice";
+import { addNewNote } from "@/entities/Note/notesSlice";
 import {
   Button,
   Card,
@@ -13,6 +13,7 @@ import React, { useMemo, useState } from "react";
 
 export const NoteCreateForm: React.FC = () => {
   const dispatch = useAppDispatch();
+
   const [title, setTitle] = useState("");
 
   const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {

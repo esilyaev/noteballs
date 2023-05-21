@@ -1,15 +1,12 @@
-import { NoteCreateForm } from "@/components/Forms/NoteCreateForm";
-import { NotesList } from "@/components/Lists/NotesList";
-import { useAppSelector } from "@/store/hooks";
+import { NoteCreateFormWidget } from "@/widgets/Note/NoteCreateFormWidget";
+import { NoteListWidget } from "@/widgets/Note/NoteListWidget";
 
 export const NotesPage = () => {
-  const notes = useAppSelector((state) => state.notes.notes);
-
   return (
     <>
-      <NoteCreateForm />
+      <NoteCreateFormWidget />
 
-      <NotesList notes={notes} />
+      <NoteListWidget />
     </>
   );
 };

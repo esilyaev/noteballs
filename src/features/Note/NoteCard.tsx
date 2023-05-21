@@ -1,6 +1,6 @@
+import { useAppDispatch } from "@/app/hooks";
 import { INote } from "@/entities/Note/Note";
-import { useAppDispatch } from "@/store/hooks";
-import { deleteNote } from "@/store/notesSlice";
+import { deleteNote } from "@/entities/Note/notesSlice";
 import {
   Button,
   Card,
